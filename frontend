@@ -1,0 +1,13 @@
+// Login.js
+import axios from 'axios';
+
+const handleLogin = async (e) => {
+  e.preventDefault();
+  const res = await axios.post('/api/login', { email, password });
+  
+  // This 'data' was constructed by your n8n workflow!
+  const { token, userProfile, dashboardStats } = res.data;
+  
+  localStorage.setItem('token', token);
+  console.log("Logged in with data from n8n:", userProfile);
+};
